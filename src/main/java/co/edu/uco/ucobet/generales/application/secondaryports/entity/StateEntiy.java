@@ -32,7 +32,7 @@ public final class StateEntiy {
 		StateEntiy() {
 			setId(UUIDHelper.getDefault());
 			setName(TextHelper.EMPTY);
-			setCountry(ObjectHelper.getDefault(country, new CountryEntity()));
+			setCountry(CountryEntity.create());
 		}
 		
 		public StateEntiy(final UUID id, final String name,final CountryEntity country) {
@@ -57,7 +57,7 @@ public final class StateEntiy {
 		}
 
 		public void setCountry(final CountryEntity country) {
-			this.country = ObjectHelper.getDefault(country, new CountryEntity());
+			this.country = ObjectHelper.getDefault(country, CountryEntity.create());
 		}
 
 		public UUID getId() {

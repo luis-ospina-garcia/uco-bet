@@ -1,4 +1,4 @@
-package co.edu.uco.ucobet.generales.crosscutting.exception;
+package co.edu.uco.ucobet.generales.crosscutting.exception.enums;
 
 public enum Layer {
 	

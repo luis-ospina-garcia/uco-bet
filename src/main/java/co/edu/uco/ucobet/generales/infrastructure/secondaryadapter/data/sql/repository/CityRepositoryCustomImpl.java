@@ -47,7 +47,7 @@ public final class CityRepositoryCustomImpl implements CityRepositoryCustom {
 				}
 			}
 			
-			//query.select(result).where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
+			query.select(result).where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
 			
 			return entityManager.createQuery(query).getResultList();
 			

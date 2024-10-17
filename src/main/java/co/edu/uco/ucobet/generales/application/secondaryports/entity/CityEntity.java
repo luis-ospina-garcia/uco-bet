@@ -32,7 +32,7 @@ public final class CityEntity {
 	CityEntity() {
 		setId(UUIDHelper.getDefault());
 		setName(TextHelper.EMPTY);
-		setState(state);
+		setState(StateEntiy.create());
 	}
 	
 	public CityEntity(final UUID id, final String name,final StateEntiy state) {
@@ -44,31 +44,35 @@ public final class CityEntity {
 	public static final CityEntity create(){
         return new CityEntity();
     }
+	
+	public static final CityEntity create(final UUID id, final String name, final StateEntiy state ){
+	    return new CityEntity(id,name,state);
+	}
+	
     public static final CityEntity create(final UUID id){
         return new CityEntity(id, TextHelper.EMPTY, StateEntiy.create());
     }
-    public static final CityEntity create(final UUID id, final String name, final StateEntiy state ){
-    	return new CityEntity(id,name,state);
-    }
-	
 	
 	public StateEntiy getState() {
 		return state;
 	}
 
 	public void setState(final StateEntiy state) {
-		this.state = ObjectHelper.getDefault(state, new StateEntiy());
+		this.state = ObjectHelper.getDefault(state, StateEntiy.create());
 	}
 
 	public UUID getId() {
 		return id;
 	}
+	
 	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public  void setName(final String name) {
 		this.name = TextHelper.applyTrim(name);
 	}

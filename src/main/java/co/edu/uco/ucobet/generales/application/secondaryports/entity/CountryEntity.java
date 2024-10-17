@@ -37,9 +37,11 @@ public final class CountryEntity  {
 	public static final CountryEntity create(){
         return new CountryEntity();
     }
+	
     public static final CountryEntity create(final UUID id){
         return new CountryEntity(id, TextHelper.EMPTY);
     }
+    
     public static final CountryEntity create(final UUID id, final String name){
     	return new CountryEntity(id,name);
     }
@@ -47,12 +49,15 @@ public final class CountryEntity  {
 	public UUID getId() {
 		return id;
 	}
+	
 	public void setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(final String name) {
 		this.name = TextHelper.applyTrim(name);
 	}

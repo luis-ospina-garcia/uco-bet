@@ -1,5 +1,7 @@
 package co.edu.uco.ucobet.generales.crosscutting.exception;
 
+import co.edu.uco.ucobet.generales.crosscutting.exception.enums.Layer;
+
 public class RepositoryUcobetException extends UcobetExeception {
 
 	private static final long serialVersionUID = 1L;

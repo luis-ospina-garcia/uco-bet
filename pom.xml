@@ -44,11 +44,29 @@
 			<artifactId>mssql-jdbc</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+  			<groupId>com.azure.spring</groupId>
+  			<artifactId>spring-cloud-azure-starter-keyvault</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.sendgrid</groupId>
+    		<artifactId>sendgrid-java</artifactId>
+		</dependency>
+		
 		
 		<!-- Dependencia de Modelmapper -->
 		<dependency>
@@ -64,8 +82,29 @@
 	        <version>1.6.2</version>
 	    </dependency>
 
+		<dependency>
+    		<groupId>io.jsonwebtoken</groupId>
+    		<artifactId>jjwt</artifactId>
+    		<version>0.9.1</version>
+		</dependency>
 		
+		
+
 	</dependencies>
+	
+	<dependencyManagement>
+  		<dependencies>
+    		<dependency>
+      			<groupId>com.azure.spring</groupId>
+      			<artifactId>spring-cloud-azure-dependencies</artifactId>
+      			<version>5.17.1</version>
+      			<type>pom</type>
+      			<scope>import</scope>
+    		</dependency>
+  		</dependencies>
+	</dependencyManagement>
+	
+    
 
 	<build>
 		<plugins>

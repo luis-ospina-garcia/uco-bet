@@ -5,9 +5,9 @@ import org.mapstruct.factory.Mappers;
 
 
 @Mapper 
-public interface CountryMapper {
+public interface CountryDTOMapper {
 	
-    CountryMapper INSTANCE = Mappers.getMapper(CountryMapper.class);
+    CountryDTOMapper INSTANCE = Mappers.getMapper(CountryDTOMapper.class);
     
     
 	 
