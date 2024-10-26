@@ -27,15 +27,15 @@ public final class CityEntity {
 	 
 	 @ManyToOne
 	 @JoinColumn(name = "state")
-	private StateEntiy state;
+	private StateEntity state;
 	
 	CityEntity() {
 		setId(UUIDHelper.getDefault());
 		setName(TextHelper.EMPTY);
-		setState(StateEntiy.create());
+		setState(StateEntity.create());
 	}
 	
-	public CityEntity(final UUID id, final String name,final StateEntiy state) {
+	public CityEntity(final UUID id, final String name,final StateEntity state) {
 		setId(id);
 		setName(name);
 		setState(state);
@@ -45,20 +45,20 @@ public final class CityEntity {
         return new CityEntity();
     }
 	
-	public static final CityEntity create(final UUID id, final String name, final StateEntiy state ){
+	public static final CityEntity create(final UUID id, final String name, final StateEntity state ){
 	    return new CityEntity(id,name,state);
 	}
 	
     public static final CityEntity create(final UUID id){
-        return new CityEntity(id, TextHelper.EMPTY, StateEntiy.create());
+        return new CityEntity(id, TextHelper.EMPTY, StateEntity.create());
     }
 	
-	public StateEntiy getState() {
+	public StateEntity getState() {
 		return state;
 	}
 
-	public void setState(final StateEntiy state) {
-		this.state = ObjectHelper.getDefault(state, StateEntiy.create());
+	public void setState(final StateEntity state) {
+		this.state = ObjectHelper.getDefault(state, StateEntity.create());
 	}
 
 	public UUID getId() {
@@ -66,7 +66,7 @@ public final class CityEntity {
 	}
 	
 	public void setId(final UUID id) {
-		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());;
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
 	}
 	
 	public String getName() {

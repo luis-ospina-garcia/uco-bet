@@ -9,7 +9,7 @@ public class CityDomain extends Domain {
 	private String name;
 	private StateDomain state;
 
-	protected CityDomain(final UUID id, final String name, final StateDomain state) {
+	public CityDomain(final UUID id, final String name, final StateDomain state) {
 		super(id);
 		setName(name);
 		setState(state);
@@ -30,6 +30,8 @@ public class CityDomain extends Domain {
 	private final void setState(final StateDomain state) {
 		this.state = state;
 	}
+	
+	
 	
 	
 	

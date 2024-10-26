@@ -5,12 +5,12 @@ import java.util.UUID;
 public class CountryDTO {
 	
 	private UUID  id;
-	private String nombre;
+	private String name;
 	
 	public CountryDTO() {
 		super();
 		setId(id);
-		setNombre(nombre);
+		setName(name);
 	}
 	
 	
@@ -20,11 +20,11 @@ public class CountryDTO {
 	public final  void setId(final UUID id) {
 		this.id = id;
 	}
-	public final String getNombre() {
-		return nombre;
+	public final String getName() {
+		return name;
 	}
-	public final  void setNombre(final String nombre) {
-		this.nombre = nombre;
+	public final  void setName(final String name) {
+		this.name = name;
 	}
 	
 }
