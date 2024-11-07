@@ -1,30 +1,42 @@
 package co.edu.uco.ucobet.generales.domain.city.rules.impl;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import co.edu.uco.ucobet.generales.application.secondaryports.entity.CityEntity;
+import co.edu.uco.ucobet.generales.application.secondaryports.mapper.StateEntityMapper;
 import co.edu.uco.ucobet.generales.application.secondaryports.repository.CityRepository;
 import co.edu.uco.ucobet.generales.domain.city.CityDomain;
+import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameForStateDoesExistsExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityNameForStateDoesNotExistsRule;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
 
 @Service
-public class CityNameForStateDoesNotExistsRuleImpl implements CityNameForStateDoesNotExistsRule{
-	
-	private CityRepository cityRepository;
+public class CityNameForStateDoesNotExistsRuleImpl implements CityNameForStateDoesNotExistsRule {
+    
+    private final CityRepository cityRepository;
+    @Autowired
+    private MessageCatalogService messageCatalogService;
 
-	public CityNameForStateDoesNotExistsRuleImpl(final CityRepository cityRepository) {
+    public CityNameForStateDoesNotExistsRuleImpl(CityRepository cityRepository,
+			MessageCatalogService messageCatalogService) {
+		super();
 		this.cityRepository = cityRepository;
+		this.messageCatalogService = messageCatalogService;
 	}
+
+
 
 	@Override
-	public void validate(CityDomain data) {
-		
-		
-	}
+    public void validate(CityDomain data) {
+        
+        var cityEntityFilter = CityEntity.create()
+                                         .setName(data.getName())
+                                         .setState(StateEntityMapper.INSTANCE.toEntity(data.getState()));
 
-	
+        var resultados = cityRepository.findByfilter(cityEntityFilter);
 
-
-	
-
+        if (!resultados.isEmpty()) {
+            throw CityNameForStateDoesExistsExeption.create(messageCatalogService);
+        }
+    }
 }

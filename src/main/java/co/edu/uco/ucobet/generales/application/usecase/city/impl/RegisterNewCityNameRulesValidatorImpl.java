@@ -39,9 +39,9 @@ public final  class RegisterNewCityNameRulesValidatorImpl implements RegisterNew
 	}
 
 	private void validateName(final CityDomain data) {
+		cityNameIsNotEmptyRule.validate(data.getName());
 		cityNameLenghtIsValidRule.validate(data.getName());
 		cityNameFormatIsValidRule.validate(data.getName());
-		cityNameIsNotEmptyRule.validate(data.getName());
 		cityNameIsNotNullRule.validate(data.getName());
 		cityNameForStateDoesNotExistsRule.validate(data);
 	}

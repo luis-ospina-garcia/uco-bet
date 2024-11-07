@@ -57,24 +57,27 @@ public final class CityEntity {
 		return state;
 	}
 
-	public void setState(final StateEntity state) {
+	public CityEntity  setState(final StateEntity state) {
 		this.state = ObjectHelper.getDefault(state, StateEntity.create());
+		return this;
 	}
 
 	public UUID getId() {
 		return id;
 	}
 	
-	public void setId(final UUID id) {
+	public CityEntity setId(final UUID id) {
 		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+		return this;
 	}
 	
 	public String getName() {
 		return name;
 	}
 	
-	public  void setName(final String name) {
+	public  CityEntity  setName(final String name) {
 		this.name = TextHelper.applyTrim(name);
+		return this;
 	}
 
 }

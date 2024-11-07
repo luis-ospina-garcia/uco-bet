@@ -1,18 +1,19 @@
 package co.edu.uco.ucobet.generales.domain.city.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
 
 public class CityIsBeingUsedExeption extends RuleUcobetException {
 
 	private static final long serialVersionUID = 1L;
 	
-	private CityIsBeingUsedExeption(final String userMessage) {
+	public CityIsBeingUsedExeption(final String userMessage) {
 		super(userMessage, userMessage, new Exception());
 		
 	}
 	
-	public static final CityIsBeingUsedExeption create() {
-		var userMessage = "La ciudad esta siendo utilizada en otra parte del sistema";
+	public static final CityIsBeingUsedExeption create(final MessageCatalogService messageCatalogService) {
+		var userMessage = messageCatalogService.getMessage("0012") ;
 		return new CityIsBeingUsedExeption(userMessage);
 	}
 

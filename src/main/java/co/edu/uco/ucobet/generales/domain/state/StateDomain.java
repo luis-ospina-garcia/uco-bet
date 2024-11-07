@@ -10,7 +10,7 @@ public final class StateDomain extends Domain {
 	private String name;
 	private CountryDomain country;
 
-	protected StateDomain(final UUID id, final String name , final CountryDomain country ) {
+	public StateDomain(final UUID id, final String name , final CountryDomain country ) {
 		super(id);
 		setName(name);
 		setCountry(country);

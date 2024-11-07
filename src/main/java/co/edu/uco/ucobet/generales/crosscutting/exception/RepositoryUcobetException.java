@@ -21,6 +21,13 @@ public class RepositoryUcobetException extends UcobetExeception {
 	public static final RepositoryUcobetException create(final String userMessage, final String technicalMessage){
 		return new RepositoryUcobetException(userMessage,technicalMessage,new Exception());
 	}
+	
+	public static final RepositoryUcobetException create(final  String userMessage, 
+			final Exception rootException) {
+		
+		return new RepositoryUcobetException(userMessage, userMessage, rootException);
+		
+	}
 }
 
 

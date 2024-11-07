@@ -11,6 +11,10 @@ public class CountryDomain extends Domain {
 		super(id);
 		setName(name);
 	}
+	
+	public static final CountryDomain create(final UUID id,final String name) {
+		return new CountryDomain(id,name);
+	}
 
 	public final String getName() {
 		return name;

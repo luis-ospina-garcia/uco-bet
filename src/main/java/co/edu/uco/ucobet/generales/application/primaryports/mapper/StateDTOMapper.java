@@ -2,21 +2,30 @@ package co.edu.uco.ucobet.generales.application.primaryports.mapper;
 
 import java.util.List;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-import co.edu.uco.ucobet.generales.application.primaryports.dto.StateDTO;
+import co.edu.uco.ucobet.generales.application.primaryports.dto.RetrieveStateDTO;
 import co.edu.uco.ucobet.generales.domain.state.StateDomain;
 
+@Mapper(componentModel = "spring")
 public interface StateDTOMapper {
-	
-	StateDTOMapper INSTANCE = Mappers.getMapper(StateDTOMapper.class);
 
-	StateDTO toEntity(StateDomain domain);
+    StateDTOMapper INSTANCE = Mappers.getMapper(StateDTOMapper.class);
+    
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "country", target = "country")
+    StateDomain toDomain(RetrieveStateDTO dto);
 
-	StateDomain toDomain(StateDTO dto);
+    @Mapping(source = "id", target = "id")
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "country", target = "country")
+    RetrieveStateDTO toDto(StateDomain stateDomain);
 
-	List<StateDTO> domaintoDomainCollection(List<StateDomain> domainCollection);
-
-	List<StateDomain> dtotoDomainCollection(List<StateDTO> dtoCollection);
-
+    	List<RetrieveStateDTO> toDtoCollection(List<StateDomain>domains);
+    	
 }
+
+

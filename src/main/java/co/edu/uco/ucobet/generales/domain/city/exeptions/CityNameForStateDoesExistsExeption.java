@@ -1,6 +1,7 @@
 package co.edu.uco.ucobet.generales.domain.city.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
 
 public class CityNameForStateDoesExistsExeption extends RuleUcobetException{
 
@@ -10,8 +11,8 @@ public class CityNameForStateDoesExistsExeption extends RuleUcobetException{
 		super(userMessage, userMessage, new Exception());
 	}
 	
-	public static final CityNameForStateDoesExistsExeption create() {
-		var userMessage = " no existe una ciudad con este nombre en el departamento..";
+	public static final CityNameForStateDoesExistsExeption create(final MessageCatalogService messageCatalogService) {
+		var userMessage = messageCatalogService.getMessage("0014") ;
 		return new CityNameForStateDoesExistsExeption(userMessage);
 	}
 

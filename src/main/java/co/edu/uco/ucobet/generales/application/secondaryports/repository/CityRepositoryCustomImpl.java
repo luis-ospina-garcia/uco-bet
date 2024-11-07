@@ -24,7 +24,7 @@ public class CityRepositoryCustomImpl implements CityRepositoryCustom {
 	}
 
 	@Override
-	public List<CityEntity> findByFilter(final CityEntity filter) {
+	public List<CityEntity> findByfilter(final CityEntity filter) {
 		try {
 			var criteriaBuilder = entityManager.getCriteriaBuilder();
 			var query = criteriaBuilder.createQuery(CityEntity.class);

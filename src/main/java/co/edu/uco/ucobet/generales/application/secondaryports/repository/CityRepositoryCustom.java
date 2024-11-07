@@ -10,7 +10,7 @@ import co.edu.uco.ucobet.generales.application.secondaryports.entity.CityEntity;
 @Repository
 public interface CityRepositoryCustom {
 	
-	List<CityEntity> findByFilter(CityEntity filter);
+	List<CityEntity> findByfilter(CityEntity filter);
 	
 	boolean isCityBeingUsed(UUID cityId);
 	boolean existsByNameAndState(String name, String state);

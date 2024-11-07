@@ -1,6 +1,7 @@
 package co.edu.uco.ucobet.generales.domain.state.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
 
 public class StateIdIsDefaultValueException extends RuleUcobetException{
 
@@ -11,8 +12,8 @@ public class StateIdIsDefaultValueException extends RuleUcobetException{
 
 	}
 
-	public static final StateIdIsDefaultValueException create() {
-		var userMessage = "El estado no pueder ser el valor por defecto";
+	public static final StateIdIsDefaultValueException create(final MessageCatalogService messageCatalogService) {
+		var userMessage = messageCatalogService.getMessage("0007");
 		return new StateIdIsDefaultValueException(userMessage);
 	}
 

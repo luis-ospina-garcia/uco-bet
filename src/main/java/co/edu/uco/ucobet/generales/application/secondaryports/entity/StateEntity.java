@@ -56,21 +56,24 @@ public final class StateEntity {
 			return country;
 		}
 
-		public void setCountry(final CountryEntity country) {
+		public StateEntity setCountry(final CountryEntity country) {
 			this.country = ObjectHelper.getDefault(country, CountryEntity.create());
+			return this;
 		}
 
 		public UUID getId() {
 			return id;
 		}
-		public void setId(final UUID id) {
-			this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());;
+		public StateEntity setId(final UUID id) {
+			this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+			return this;
 		}
 		public String getName() {
 			return name;
 		}
-		public void setName(final String name) {
+		public StateEntity setName(final String name) {
 			this.name = name;
+			return this;
 		}
 
 }
