@@ -17,6 +17,9 @@ public class EmailService {
 
     @Value("${email-to}")
     private String emailTo;
+    
+    @Value("${SG-Api}")
+    private String SGApi;
 
     public void sendEmailNotification(String cityName) {
         Email from = new Email(emailFrom);
@@ -26,7 +29,7 @@ public class EmailService {
         Content content = new Content("text/html", mensajeFormateado);
 
         Mail mail = new Mail(from, subject, to, content);
-        SendGrid sg = new SendGrid("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");
+        SendGrid sg = new SendGrid(SGApi);
         Request request = new Request();
 
         try {

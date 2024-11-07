@@ -13,7 +13,7 @@ public class MessageCatalogService {
         this.redisTemplate = redisTemplate;
     }
 
-    // Método para obtener un mensaje del catálogo
+    
     public String getMessage(String key) {
         return redisTemplate.opsForValue().get(key);
     }

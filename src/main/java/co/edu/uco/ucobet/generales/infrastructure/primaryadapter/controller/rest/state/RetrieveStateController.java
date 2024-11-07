@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uco.ucobet.generales.application.primaryports.dto.RetrieveStateDTO;
 import co.edu.uco.ucobet.generales.application.primaryports.interactor.state.RetrieveStateInteractor;
-import co.edu.uco.ucobet.generales.crosscutting.exception.UcobetExeception;
+import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
 import co.edu.uco.ucobet.generales.infrastructure.primaryadapter.controller.response.StateResponse;
 import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
 
@@ -37,7 +37,7 @@ public class RetrieveStateController {
 			
 			stateResponse.setDatos(retrieveStateInteractor.execute(retrieveStateDto));
 			stateResponse.getMensajes().add(messageCatalogService.getMessage("0001"));
-		} catch (UcobetExeception exception) {
+		} catch (RuleUcobetException exception) {
 			httpStatusCode = HttpStatus.BAD_REQUEST;
 			stateResponse.getMensajes().add(exception.getMessage());
 			exception.printStackTrace();

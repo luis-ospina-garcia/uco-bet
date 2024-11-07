@@ -32,8 +32,8 @@ public final  class RegisterNewCityStateRulesValidatorImpl implements RegisterNe
 	}
 
 	private void validateState(final UUID data) {
-		stateDoesExistsRule.validate(data);
 		stateIdIsNotNullRule.validate(data);
+		stateDoesExistsRule.validate(data);
 		stateIdIsNotDefaultValueRule.validate(data);
 
 	}
