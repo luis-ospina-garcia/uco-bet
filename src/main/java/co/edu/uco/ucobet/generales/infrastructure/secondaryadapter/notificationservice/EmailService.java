@@ -5,12 +5,18 @@ import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
 public class EmailService {
+	
+	@Autowired
+	private MessageCatalogService messageCatalogService;
 	
     @Value("${email-from}")
     private String emailFrom;
@@ -23,9 +29,11 @@ public class EmailService {
 
     public void sendEmailNotification(String cityName) {
         Email from = new Email(emailFrom);
-        String subject = "Nueva Ciudad";
+        var parametro1 = messageCatalogService.getMessage("0019");
+        String subject = parametro1;
         Email to = new Email(emailTo);
-        String mensajeFormateado = String.format("La Nueva Ciudad Ha Sido Registrada Exitosamente: <strong>%s</strong>", cityName);
+        var parametro2 = messageCatalogService.getMessage("0018") ;
+        String mensajeFormateado = String.format(parametro2, cityName);
         Content content = new Content("text/html", mensajeFormateado);
 
         Mail mail = new Mail(from, subject, to, content);
@@ -37,9 +45,11 @@ public class EmailService {
             request.setEndpoint("mail/send");
             request.setBody(mail.build());
             Response response = sg.api(request);
-            System.out.println("Email enviado - Status Code: " + response.getStatusCode());
+            var parametro3 = messageCatalogService.getMessage("0020") ;
+            System.out.println(parametro3 + response.getStatusCode());
         } catch (IOException ex) {
-            System.err.println("Error al enviar email: " + ex.getMessage());
+        	var parametro4 = messageCatalogService.getMessage("0021") ;
+            System.err.println(parametro4 + ex.getMessage());
             ex.printStackTrace();
         }
     }
