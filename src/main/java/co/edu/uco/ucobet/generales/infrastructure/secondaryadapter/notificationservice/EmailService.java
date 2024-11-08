@@ -15,7 +15,6 @@ import java.io.IOException;
 
 @Service
 public class EmailService {
-
     private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 
     @Autowired
@@ -47,10 +46,10 @@ public class EmailService {
             request.setBody(mail.build());
             Response response = sg.api(request);
             var parametro3 = messageCatalogService.getMessage("0020");
-            logger.info(parametro3 + response.getStatusCode());
+            logger.info("{}{}", parametro3, response.getStatusCode());
         } catch (IOException ex) {
             var parametro4 = messageCatalogService.getMessage("0021");
-            logger.error(parametro4 + ex.getMessage(), ex);
+            logger.error("{}{}", parametro4, ex.getMessage(), ex);
         }
     }
 }
