@@ -5,7 +5,6 @@ import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
@@ -16,9 +15,7 @@ import java.io.IOException;
 @Service
 public class EmailService {
     private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
-
-    @Autowired
-    private MessageCatalogService messageCatalogService;
+    private final MessageCatalogService messageCatalogService;
 
     @Value("${email-from}")
     private String emailFrom;
@@ -28,6 +25,10 @@ public class EmailService {
 
     @Value("${SG-Api}")
     private String sgApi;
+
+    public EmailService(MessageCatalogService messageCatalogService) {
+        this.messageCatalogService = messageCatalogService;
+    }
 
     public void sendEmailNotification(String cityName) {
         Email from = new Email(emailFrom);

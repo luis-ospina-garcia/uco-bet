@@ -1,6 +1,5 @@
 package co.edu.uco.ucobet.generales.domain.city.rules.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uco.ucobet.generales.crosscutting.helpers.TextHelper;
@@ -11,11 +10,10 @@ import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalo
 @Service
 public class CityNameFormatIsValidRuleImpl implements CityNameFormatIsValidRule{
 	
-	@Autowired
+	
 	private MessageCatalogService messageCatalogService;
 	
 	public CityNameFormatIsValidRuleImpl(MessageCatalogService messageCatalogService) {
-		super();
 		this.messageCatalogService = messageCatalogService;
 	}
 

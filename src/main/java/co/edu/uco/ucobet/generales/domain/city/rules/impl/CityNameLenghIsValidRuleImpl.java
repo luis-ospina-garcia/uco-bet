@@ -1,6 +1,5 @@
 package co.edu.uco.ucobet.generales.domain.city.rules.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameLenghtIsNotValidExeption;
@@ -10,11 +9,10 @@ import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalo
 @Service
 public class CityNameLenghIsValidRuleImpl implements CityNameLenghtIsValidRule {
 	
-	@Autowired
+	
 	private MessageCatalogService messageCatalogService;
 	
 	public CityNameLenghIsValidRuleImpl(MessageCatalogService messageCatalogService) {
-		super();
 		this.messageCatalogService = messageCatalogService;
 	}
 

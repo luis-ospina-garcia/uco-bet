@@ -1,6 +1,5 @@
 package co.edu.uco.ucobet.generales.infrastructure.primaryadapter.controller.rest.city;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import co.edu.uco.ucobet.generales.application.primaryports.dto.RegisterNewCityDTO;
 import co.edu.uco.ucobet.generales.application.primaryports.interactor.city.RegisterNewCityInteractor;
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
@@ -23,15 +21,15 @@ import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notifications
 public class RegisterNewCityController {
 
     private final RegisterNewCityInteractor registerNewCityInteractor;
-    
-    @Autowired
-	private MessageCatalogService messageCatalogService;
-    
-    @Autowired
-    private EmailService emailService;
+    private final MessageCatalogService messageCatalogService;
+    private final EmailService emailService;
 
-    public RegisterNewCityController(RegisterNewCityInteractor registerNewCityInteractor) {
+    public RegisterNewCityController(RegisterNewCityInteractor registerNewCityInteractor, 
+                                     MessageCatalogService messageCatalogService, 
+                                     EmailService emailService) {
         this.registerNewCityInteractor = registerNewCityInteractor;
+        this.messageCatalogService = messageCatalogService;
+        this.emailService = emailService;
     }
 
     @GetMapping
@@ -58,6 +56,4 @@ public class RegisterNewCityController {
 
         return new ResponseEntity<>(ciudadResponse, httpStatusCode);
     }
-
-   
 }

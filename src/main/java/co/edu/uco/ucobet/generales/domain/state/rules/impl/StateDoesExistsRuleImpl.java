@@ -2,7 +2,6 @@ package co.edu.uco.ucobet.generales.domain.state.rules.impl;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uco.ucobet.generales.application.secondaryports.repository.StateRepository;
@@ -15,7 +14,7 @@ public class StateDoesExistsRuleImpl implements StateDoesExistsRule {
 
     private final StateRepository stateRepository;
     
-    @Autowired
+    
 	private MessageCatalogService messageCatalogService;
 
     public StateDoesExistsRuleImpl(StateRepository stateRepository) {

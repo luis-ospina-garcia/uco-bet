@@ -1,6 +1,5 @@
 package co.edu.uco.ucobet.generales.domain.city.rules.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.application.secondaryports.entity.CityEntity;
 import co.edu.uco.ucobet.generales.application.secondaryports.mapper.StateEntityMapper;
@@ -14,12 +13,11 @@ import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalo
 public class CityNameForStateDoesNotExistsRuleImpl implements CityNameForStateDoesNotExistsRule {
     
     private final CityRepository cityRepository;
-    @Autowired
+    
     private MessageCatalogService messageCatalogService;
 
     public CityNameForStateDoesNotExistsRuleImpl(CityRepository cityRepository,
 			MessageCatalogService messageCatalogService) {
-		super();
 		this.cityRepository = cityRepository;
 		this.messageCatalogService = messageCatalogService;
 	}
