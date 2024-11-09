@@ -4,7 +4,9 @@ import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+
+import co.edu.uco.ucobet.generales.application.secondaryports.notification.EmailNotificationService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.secretservice.SecretService;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -15,9 +17,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 @Service
-public class SendEmail {
+public class SendEmail implements EmailNotificationService {
     private static final Logger logger = LoggerFactory.getLogger(SendEmail.class);
-    private final MessageCatalogImpl messageCatalogService;
+    private final MessageCatalog messageCatalogService;
     private final SecretService secretService;
     
 
@@ -29,7 +31,7 @@ public class SendEmail {
     
     
 
-    public SendEmail(MessageCatalogImpl messageCatalogService, SecretService secretService ) {
+    public SendEmail(MessageCatalog messageCatalogService, SecretService secretService ) {
         this.messageCatalogService = messageCatalogService;
         this.secretService =secretService;
     }

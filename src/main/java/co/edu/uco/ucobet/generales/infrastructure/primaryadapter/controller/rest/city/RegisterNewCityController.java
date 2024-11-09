@@ -13,7 +13,7 @@ import co.edu.uco.ucobet.generales.application.primaryports.interactor.city.Regi
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.ucobet.generales.infrastructure.primaryadapter.controller.response.CityResponse;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notification.SendEmail;
 
 @RestController
@@ -21,11 +21,11 @@ import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notification.
 public class RegisterNewCityController {
 
     private final RegisterNewCityInteractor registerNewCityInteractor;
-    private final MessageCatalogImpl messageCatalogService;
+    private final MessageCatalog messageCatalogService;
     private final SendEmail emailService;
 
     public RegisterNewCityController(RegisterNewCityInteractor registerNewCityInteractor, 
-                                     MessageCatalogImpl messageCatalogService, 
+                                     MessageCatalog messageCatalogService, 
                                      SendEmail emailService) {
         this.registerNewCityInteractor = registerNewCityInteractor;
         this.messageCatalogService = messageCatalogService;

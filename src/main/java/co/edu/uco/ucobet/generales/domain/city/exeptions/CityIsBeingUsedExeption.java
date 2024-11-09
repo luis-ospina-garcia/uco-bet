@@ -1,7 +1,7 @@
 package co.edu.uco.ucobet.generales.domain.city.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 public class CityIsBeingUsedExeption extends RuleUcobetException {
 
@@ -12,7 +12,7 @@ public class CityIsBeingUsedExeption extends RuleUcobetException {
 		
 	}
 	
-	public static final CityIsBeingUsedExeption create(final MessageCatalogImpl messageCatalogService) {
+	public static final CityIsBeingUsedExeption create(final MessageCatalog messageCatalogService) {
 		var userMessage = messageCatalogService.getMessage("0012") ;
 		return new CityIsBeingUsedExeption(userMessage);
 	}

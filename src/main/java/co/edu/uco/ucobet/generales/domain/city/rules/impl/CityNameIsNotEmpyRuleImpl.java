@@ -5,14 +5,14 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.TextHelper;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameIsEmptyExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityNameIsNotEmptyRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 @Service
 public class CityNameIsNotEmpyRuleImpl implements CityNameIsNotEmptyRule {
 
-    private final MessageCatalogImpl messageCatalogService;
+    private final MessageCatalog messageCatalogService;
     
-    public CityNameIsNotEmpyRuleImpl(MessageCatalogImpl messageCatalogService) {
+    public CityNameIsNotEmpyRuleImpl(MessageCatalog messageCatalogService) {
         this.messageCatalogService = messageCatalogService;
     }
 

@@ -9,16 +9,16 @@ import co.edu.uco.ucobet.generales.application.primaryports.dto.RetrieveStateDTO
 import co.edu.uco.ucobet.generales.application.primaryports.interactor.state.RetrieveStateInteractor;
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
 import co.edu.uco.ucobet.generales.infrastructure.primaryadapter.controller.response.StateResponse;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 @RestController
 @RequestMapping("/general/api/v1/states")
 public class RetrieveStateController {
 
     private final RetrieveStateInteractor retrieveStateInteractor;
-    private final MessageCatalogImpl messageCatalogService;
+    private final MessageCatalog messageCatalogService;
 
-    public RetrieveStateController(RetrieveStateInteractor retrieveStateInteractor, MessageCatalogImpl messageCatalogService) {
+    public RetrieveStateController(RetrieveStateInteractor retrieveStateInteractor, MessageCatalog messageCatalogService) {
         this.retrieveStateInteractor = retrieveStateInteractor;
         this.messageCatalogService = messageCatalogService;
     }

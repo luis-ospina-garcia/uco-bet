@@ -8,7 +8,7 @@ import co.edu.uco.ucobet.generales.application.secondaryports.repository.StateRe
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityStateIsNotValidException;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityStateIsValidRule;
 import co.edu.uco.ucobet.generales.domain.state.StateDomain;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 @Service
 public class CityStateIsValidRuleImpl implements CityStateIsValidRule {
@@ -16,9 +16,9 @@ public class CityStateIsValidRuleImpl implements CityStateIsValidRule {
 	private StateRepository stateRepository;
 	
 	
-	private MessageCatalogImpl messageCatalogService;
+	private MessageCatalog messageCatalogService;
 
-	public CityStateIsValidRuleImpl(StateRepository stateRepository, MessageCatalogImpl messageCatalogService) {
+	public CityStateIsValidRuleImpl(StateRepository stateRepository, MessageCatalog messageCatalogService) {
 		this.stateRepository = stateRepository;
 		this.messageCatalogService = messageCatalogService;
 	}

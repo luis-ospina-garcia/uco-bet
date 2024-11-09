@@ -1,7 +1,7 @@
 package co.edu.uco.ucobet.generales.domain.city.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 public class CityIdIsNullExeption extends RuleUcobetException{
 
@@ -13,7 +13,7 @@ public class CityIdIsNullExeption extends RuleUcobetException{
 		
 	}
 	
-	public static final CityIdIsNullExeption create(final MessageCatalogImpl messageCatalogService) {
+	public static final CityIdIsNullExeption create(final MessageCatalog messageCatalogService) {
 		var userMessage =messageCatalogService.getMessage("0011") ;
 		return new CityIdIsNullExeption(userMessage);
 	}

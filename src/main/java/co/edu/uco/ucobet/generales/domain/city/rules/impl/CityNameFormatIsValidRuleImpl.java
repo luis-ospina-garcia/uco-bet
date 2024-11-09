@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.TextHelper;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameFormatIsNotValidExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityNameFormatIsValidRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 @Service
 public class CityNameFormatIsValidRuleImpl implements CityNameFormatIsValidRule{
 	
 	
-	private MessageCatalogImpl messageCatalogService;
+	private MessageCatalog messageCatalogService;
 	
-	public CityNameFormatIsValidRuleImpl(MessageCatalogImpl messageCatalogService) {
+	public CityNameFormatIsValidRuleImpl(MessageCatalog messageCatalogService) {
 		this.messageCatalogService = messageCatalogService;
 	}
 

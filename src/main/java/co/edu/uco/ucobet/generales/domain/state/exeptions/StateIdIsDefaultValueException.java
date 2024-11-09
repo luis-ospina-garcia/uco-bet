@@ -1,7 +1,7 @@
 package co.edu.uco.ucobet.generales.domain.state.exeptions;
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 public class StateIdIsDefaultValueException extends RuleUcobetException{
 
@@ -12,7 +12,7 @@ public class StateIdIsDefaultValueException extends RuleUcobetException{
 
 	}
 
-	public static final StateIdIsDefaultValueException create(final MessageCatalogImpl messageCatalogService) {
+	public static final StateIdIsDefaultValueException create(final MessageCatalog messageCatalogService) {
 		var userMessage = messageCatalogService.getMessage("0007");
 		return new StateIdIsDefaultValueException(userMessage);
 	}

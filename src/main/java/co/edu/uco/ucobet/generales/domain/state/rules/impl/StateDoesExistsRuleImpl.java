@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.application.secondaryports.repository.StateRepository;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityStateIsNotValidException;
 import co.edu.uco.ucobet.generales.domain.state.rules.StateDoesExistsRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalog;
 
 @Service
 public class StateDoesExistsRuleImpl implements StateDoesExistsRule {
@@ -15,7 +15,7 @@ public class StateDoesExistsRuleImpl implements StateDoesExistsRule {
     private final StateRepository stateRepository;
     
     
-	private MessageCatalogImpl messageCatalogService;
+	private MessageCatalog messageCatalogService;
 
     public StateDoesExistsRuleImpl(StateRepository stateRepository) {
         this.stateRepository = stateRepository;
