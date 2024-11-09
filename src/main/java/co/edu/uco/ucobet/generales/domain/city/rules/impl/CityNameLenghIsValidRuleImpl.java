@@ -4,15 +4,15 @@ import org.springframework.stereotype.Service;
 
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameLenghtIsNotValidExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityNameLenghtIsValidRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 @Service
 public class CityNameLenghIsValidRuleImpl implements CityNameLenghtIsValidRule {
 	
 	
-	private MessageCatalogService messageCatalogService;
+	private MessageCatalogImpl messageCatalogService;
 	
-	public CityNameLenghIsValidRuleImpl(MessageCatalogService messageCatalogService) {
+	public CityNameLenghIsValidRuleImpl(MessageCatalogImpl messageCatalogService) {
 		this.messageCatalogService = messageCatalogService;
 	}
 

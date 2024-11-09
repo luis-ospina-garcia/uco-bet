@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.application.secondaryports.repository.CityRepository;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityIdDoesNotExistsExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityIdDoesExistsRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 @Service
 public final class CityIdDoesExistsRuleImpl implements CityIdDoesExistsRule {
 	
 	private CityRepository cityRepository;
-	private MessageCatalogService messageCatalogService;
+	private MessageCatalogImpl messageCatalogService;
 	
-	public CityIdDoesExistsRuleImpl(CityRepository cityRepository, MessageCatalogService messageCatalogService) {
+	public CityIdDoesExistsRuleImpl(CityRepository cityRepository, MessageCatalogImpl messageCatalogService) {
 		this.cityRepository = cityRepository;
 		this.messageCatalogService = messageCatalogService;
 	}

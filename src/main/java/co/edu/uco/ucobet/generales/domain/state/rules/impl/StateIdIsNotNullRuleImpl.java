@@ -8,16 +8,16 @@ import co.edu.uco.ucobet.generales.crosscutting.helpers.ObjectHelper;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.ucobet.generales.domain.state.exeptions.StateIdIsNullException;
 import co.edu.uco.ucobet.generales.domain.state.rules.StateIdIsNotNullRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 
 @Service
 public class StateIdIsNotNullRuleImpl implements StateIdIsNotNullRule  {
 	
 
-	private MessageCatalogService messageCatalogService;
+	private MessageCatalogImpl messageCatalogService;
 
-	public StateIdIsNotNullRuleImpl(MessageCatalogService messageCatalogService) {
+	public StateIdIsNotNullRuleImpl(MessageCatalogImpl messageCatalogService) {
 		this.messageCatalogService = messageCatalogService;
 	}
 

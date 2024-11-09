@@ -7,16 +7,16 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.application.secondaryports.repository.CityRepository;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityIsBeingUsedExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityIsNotBeingUsedRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 
 @Service
 public class CityIsNotBeingUsedRuleImpl implements CityIsNotBeingUsedRule{
 	
 	private CityRepository cityRepository;
-	private MessageCatalogService messageCatalogService;
+	private MessageCatalogImpl messageCatalogService;
 	
-	public CityIsNotBeingUsedRuleImpl(CityRepository cityRepository, MessageCatalogService messageCatalogService) {
+	public CityIsNotBeingUsedRuleImpl(CityRepository cityRepository, MessageCatalogImpl messageCatalogService) {
 		this.cityRepository = cityRepository;
 		this.messageCatalogService = messageCatalogService;
 	}

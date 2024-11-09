@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.ucobet.generales.domain.state.exeptions.StateIdIsDefaultValueException;
 import co.edu.uco.ucobet.generales.domain.state.rules.StateIdIsNotDefaultValueRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 @Service
 public class StateIdIsNotDefaultValueRuleImpl implements StateIdIsNotDefaultValueRule {
 	
-	private MessageCatalogService messageCatalogService;
+	private MessageCatalogImpl messageCatalogService;
 	
-	public StateIdIsNotDefaultValueRuleImpl(MessageCatalogService messageCatalogService) {
+	public StateIdIsNotDefaultValueRuleImpl(MessageCatalogImpl messageCatalogService) {
 		this.messageCatalogService = messageCatalogService;
 	}
 

@@ -2,7 +2,7 @@ package co.edu.uco.ucobet.generales.domain.state.exeptions;
 
 
 import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 public class StateDoesNotExistsException extends RuleUcobetException {
 	
@@ -13,7 +13,7 @@ public class StateDoesNotExistsException extends RuleUcobetException {
 
 	}
 
-	public static final StateDoesNotExistsException create(final MessageCatalogService messageCatalogService) {
+	public static final StateDoesNotExistsException create(final MessageCatalogImpl messageCatalogService) {
 		var userMessage = messageCatalogService.getMessage("0005") ;
 		return new StateDoesNotExistsException(userMessage);
 	}

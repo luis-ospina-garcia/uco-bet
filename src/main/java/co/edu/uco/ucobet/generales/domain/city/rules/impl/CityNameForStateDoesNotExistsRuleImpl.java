@@ -7,17 +7,17 @@ import co.edu.uco.ucobet.generales.application.secondaryports.repository.CityRep
 import co.edu.uco.ucobet.generales.domain.city.CityDomain;
 import co.edu.uco.ucobet.generales.domain.city.exeptions.CityNameForStateDoesExistsExeption;
 import co.edu.uco.ucobet.generales.domain.city.rules.CityNameForStateDoesNotExistsRule;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
 
 @Service
 public class CityNameForStateDoesNotExistsRuleImpl implements CityNameForStateDoesNotExistsRule {
     
     private final CityRepository cityRepository;
     
-    private MessageCatalogService messageCatalogService;
+    private MessageCatalogImpl messageCatalogService;
 
     public CityNameForStateDoesNotExistsRuleImpl(CityRepository cityRepository,
-			MessageCatalogService messageCatalogService) {
+			MessageCatalogImpl messageCatalogService) {
 		this.cityRepository = cityRepository;
 		this.messageCatalogService = messageCatalogService;
 	}
