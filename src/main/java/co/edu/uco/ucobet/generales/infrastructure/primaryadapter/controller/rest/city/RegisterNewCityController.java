@@ -14,7 +14,7 @@ import co.edu.uco.ucobet.generales.crosscutting.exception.RuleUcobetException;
 import co.edu.uco.ucobet.generales.crosscutting.helpers.UUIDHelper;
 import co.edu.uco.ucobet.generales.infrastructure.primaryadapter.controller.response.CityResponse;
 import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.messagecatalog.MessageCatalogImpl;
-import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notificationservice.EmailService;
+import co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notification.SendEmail;
 
 @RestController
 @RequestMapping("/general/api/v1/cities")
@@ -22,11 +22,11 @@ public class RegisterNewCityController {
 
     private final RegisterNewCityInteractor registerNewCityInteractor;
     private final MessageCatalogImpl messageCatalogService;
-    private final EmailService emailService;
+    private final SendEmail emailService;
 
     public RegisterNewCityController(RegisterNewCityInteractor registerNewCityInteractor, 
                                      MessageCatalogImpl messageCatalogService, 
-                                     EmailService emailService) {
+                                     SendEmail emailService) {
         this.registerNewCityInteractor = registerNewCityInteractor;
         this.messageCatalogService = messageCatalogService;
         this.emailService = emailService;

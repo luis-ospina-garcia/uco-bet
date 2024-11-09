@@ -1,4 +1,4 @@
-package co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notificationservice;
+package co.edu.uco.ucobet.generales.infrastructure.secondaryadapter.notification;
 
 import com.sendgrid.*;
 import com.sendgrid.helpers.mail.Mail;
@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 
 @Service
-public class EmailService {
-    private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
+public class SendEmail {
+    private static final Logger logger = LoggerFactory.getLogger(SendEmail.class);
     private final MessageCatalogImpl messageCatalogService;
     private final SecretService secretService;
     
@@ -29,7 +29,7 @@ public class EmailService {
     
     
 
-    public EmailService(MessageCatalogImpl messageCatalogService, SecretService secretService ) {
+    public SendEmail(MessageCatalogImpl messageCatalogService, SecretService secretService ) {
         this.messageCatalogService = messageCatalogService;
         this.secretService =secretService;
     }
@@ -40,7 +40,7 @@ public class EmailService {
         String subject = parametro1;
         String emailTo = secretService.getSecretValue("to-email");
         Email to = new Email(emailTo);
-        var parametro2 = messageCatalogService.getMessage("0018");;
+        var parametro2 = messageCatalogService.getMessage("0018");
         String mensajeFormateado = String.format(parametro2, cityName);
         Content content = new Content("text/html", mensajeFormateado);
         Mail mail = new Mail(from, subject, to, content);
